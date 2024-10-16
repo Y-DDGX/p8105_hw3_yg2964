@@ -1,0 +1,51 @@
+---
+title: "p8105_hw3_yg2964"
+output: github_document
+date: "2024-10-16"
+---
+```{r}
+library(tidyverse)
+library(ggridges)
+library(patchwork)
+
+library(p8105.datasets)
+
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	fig.width = 8, 
+  fig.height = 6,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+# Problem 1
+## Load the dataset
+
+```{r}
+data("ny_noaa")
+```
+
+## short description of the dataset
+The NY NOAA dataset contains `r format(nrow(ny_noaa), big.mark=",")` observations and `r ncol(ny_noaa)` variables. Key variables include weather station ID (id), date of observation, precipitation (prcp, in tenths of mm), snowfall (mm), snow depth (mm), maximum temperature (tmax, in tenths of degrees Celsius), and minimum temperature (tmin, in tenths of degrees Celsius).
+
+
+
+
+
+
+
+
+
+
+
