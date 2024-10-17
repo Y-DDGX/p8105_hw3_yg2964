@@ -278,10 +278,21 @@ citi_july_2024_df <-
 citi_total_df <- bind_rows(citi_jan_2020_df, citi_july_2020_df, citi_jan_2024_df, citi_july_2024_df) |> 
   relocate(month, year)  
 
-# View a sample of the combined data
-head(citi_total_df)
 
 ```
 
-The resulting dataset, citi_total_df, contains Citi Bike ride data for January and July of 2020 and 2024, with a total of `r nrow(citi_total_df)` rides, featuring key columns such as rideable_type, start_station_name, end_station_name, duration, and member_casual
+The resulting dataset, citi_total_df, contains Citi Bike ride data for January and July of 2020 and 2024, with a total of `r nrow(citi_total_df)` rides, including columns such as rideable_type, start_station_name, end_station_name, duration, weekdays, month, year, ride_id and member_casual.
 
+### Section 2:Produce a reader-friendly table 
+```{r}
+rides_summary <- citi_total_df |> 
+  group_by(year, month, member_casual) |> 
+  summarise(total_rides = n()) |> 
+  ungroup() |> 
+  pivot_wider(names_from = member_casual, values_from = total_rides)
+
+knitr::kable(rides_summary, col.names = c("Year", "Month", "Casual", "Member"))
+
+```
+Interpretation:
+In the table, we see that the number of rides by Citi Bike members is consistently higher than those by casual riders across all combinations of year and month. The total rides in July are significantly higher than in January for both years, likely due to warmer weather, which makes biking more favorable during summer months. Additionally, there is a noticeable increase in both casual and member rides in 2024 compared to 2020, reflecting the growing popularity of Citi Bike, likely influenced by the expansion of electric bikes and improved accessibility to the bike-sharing system.
