@@ -171,7 +171,7 @@ age_sex_plot <-
   ) +
   facet_wrap(~ education) +  
   theme_minimal() +
-  theme(legend.position = "bottom")  # Move legend to bottom for better look
+  theme(legend.position = "bottom") 
 
 age_sex_plot
 ```
@@ -179,7 +179,7 @@ Interpretation:
 - Less than High School: Men are concentrated around ages 60-70, while women have a more even spread with peaks around ages 50 and 70.
 - High School Equivalent: Men have two peaks, around ages 40-50 and 70. Women are concentrated around ages 50-60.
 - More than High School: Men peak around ages 40-50, while women have a younger distribution, peaking around 30-40 and 50-60.
-In summary, women tend to have a broader age distribution across education levels, while men are more concentrated in specific age ranges, especially in higher education categories
+In summary, women tend to have a broader age distribution across education levels, while men are more concentrated in specific age ranges, especially in higher education categories.
 
 
 
